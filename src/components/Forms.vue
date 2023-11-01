@@ -7,7 +7,7 @@
 
             <h1>Contacto</h1>
 
-            <form id="contacto-form" @submit="checkForm" action="/something" method="post" class="fx-column">
+            <form id="contacto-form" @submit="checkForm" class="fx-column">
 
                 <p v-if="errors.length">
                     <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
@@ -20,9 +20,9 @@
 
                 <input type="email" id="email" placeholder="Email" v-model="email">
 
-                <input type="text" id="subject" placeholder="Asunto"  v-model="subject">
+                <input type="text" name="subject" id="subject" placeholder="Asunto" v-model="subject">
 
-                <textarea id="mensaje" placeholder="Mensaje" v-model="text"></textarea>
+                <textarea id="mensaje" name="text" placeholder="Mensaje" v-model="text"></textarea>
 
                 <button type="submit" value="Submit" class="button-action">Enviar</button>
 
@@ -51,15 +51,19 @@
 
 export default {
     name: 'Forms',
-    form: {
-            errors: [],
-            name: null,
-            email: null,
-            subject: null,
-            text: null
-        },
+    data() {
+        return {
+            form: {
+                name: null,
+                email: null,
+                subject: null,
+                text: null
+            },
+            errors: []
+        }
+    },
     methods: {
-        
+
         checkForm: function (e) {
             this.errors = [];
 
@@ -68,22 +72,29 @@ export default {
             }
             if (!this.email) {
                 this.errors.push('El correo electrónico es obligatorio.');
-            } else if (!this.validEmail(this.email)) {
+            } if (!this.validEmail(this.email)) {
                 this.errors.push('El correo electrónico debe ser válido.');
+            } if (!this.subject) {
+                this.errors.push('El asunto debe ser válido.');
+            } if (!this.text) {
+                this.errors.push('El mensaje debe ser válido.');
             }
-
             if (!this.errors.length) {
                 return true;
             }
-
             e.preventDefault();
         },
-        /*
+
         validEmail: function (email) {
-            //var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            //return re.test(email);
+            var valid = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+            if (valid.test(email)) {
+                return true;
+            } else {
+                return false;
+            }
+
         }
-        */
+
     }
 
 }
