@@ -11,9 +11,9 @@
 
                 <p v-if="errors.length">
                     <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
-                <ul>
-                    <li v-for="(error, index) in errors" v-bind:key="index">{{ error }} </li>
-                </ul>
+                    <ul>
+                        <li v-for="(error, index) in errors" v-bind:key="index">{{ error }} </li>
+                    </ul>
                 </p>
 
                 <input type="text" name="name" id="name" placeholder="Nombre" v-model="name">

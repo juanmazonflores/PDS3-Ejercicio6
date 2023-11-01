@@ -1,14 +1,14 @@
 /*#region 1. GENERAL*/
 :root {
-    --color-font: #fff;
-    --color-font2: #c1e8ff;
-    --color-font3: #0C134F;
+    --color-font: #F6F4EB;
+    --color-font2: #F1EFEF;
+    --color-font3: #A8A196;
     --color-background: #000000;
-    --color-background2: #0C134F;
-    --color-container: #19376D;
-    --color-container2: #8CABFF;
-    --color-button2: #7DA0CA;
-    --color-button: #0C134F;
+    --color-background2: #272829;
+    --color-container: #7D7C7C;
+    --color-container2: #EEE0C9;
+    --color-button2: #CCC8AA;
+    --color-button: #191717;
     --font-family: 'Anonymous Pro', monospace;
     ;
 }
@@ -26,7 +26,7 @@ body {
     font-family: var(--font-family);
     font-size: 20px;
     font-weight: 400;
-    background: url("../src/assets/fondo.gif") no-repeat center center fixed;
+    background: url("../src/assets/fondo.webp") no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -82,8 +82,9 @@ button.button-action:hover {
 
 /*#region 4. SECCION*/
 #forms-section {
-    background: url("../src/assets/fondo.gif") no-repeat center center fixed;
+    background: url("../src/assets/fondo.webp") no-repeat center center fixed;
     background-size: cover;
+    margin-top:5rem;
 }
 
 /*#endregion*/
